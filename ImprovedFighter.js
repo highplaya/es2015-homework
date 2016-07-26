@@ -1,8 +1,12 @@
 var Fighter = require('./Fighter');
 
 class ImprovedFighter extends Fighter {
-	doubleHit(enemy, point = 1) {
-		super.hit(enemy, point * 2);
+	hit(enemy, point) {
+		var doubleHit = Math.random() < 0.333;
+
+		point = doubleHit ? point * 2 : point;
+
+		super.hit(enemy, point);
 	}
 }
 
